@@ -1,0 +1,72 @@
+@startuml Amazon_Sales_ER_Diagram
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+!define primary_key(x) <b>x</b>
+!define foreign_key(x) <i>x</i>
+
+
+' ========================
+' Tables
+' ========================
+
+Table(customers, "customers") {
+    primary_key(customer_id) : TEXT
+    customer_city : TEXT
+    customer_state : TEXT
+    customer_age_group : TEXT
+    customer_tier : TEXT
+    customer_spending_tier : TEXT
+    is_prime_member : BOOLEAN
+}
+
+Table(products, "products") {
+    primary_key(product_id) : TEXT
+    product_name : TEXT
+    category : TEXT
+    subcategory : TEXT
+    brand : TEXT
+    product_rating : FLOAT
+    is_prime_eligible : BOOLEAN
+    product_weight_kg : FLOAT
+}
+
+Table(time_dimension, "time_dimension") {
+    primary_key(order_date) : DATE
+    order_month : INT
+    order_quarter : INT
+    order_year : INT
+}
+
+Table(transactions, "transactions") {
+    primary_key(transaction_id) : TEXT
+    foreign_key(customer_id) : TEXT
+    foreign_key(product_id) : TEXT
+    foreign_key(order_date) : DATE
+
+    original_price_inr : FLOAT
+    discounted_price_inr : FLOAT
+    discount_percent : FLOAT
+    final_amount_inr : FLOAT
+    subtotal_inr : FLOAT
+    delivery_charges : FLOAT
+
+    quantity : INT
+    payment_method : TEXT
+    delivery_days : INT
+    delivery_type : TEXT
+
+    customer_rating : FLOAT
+    return_status : TEXT
+
+    is_festival_sale : BOOLEAN
+    festival_name : TEXT
+}
+
+' ========================
+' Relationships
+' ========================
+
+customers ||--o{ transactions : "places"
+products ||--o{ transactions : "contains"
+time_dimension ||--o{ transactions : "on"
+
+@enduml
