@@ -33,13 +33,12 @@ This project is an end-to-end e-commerce analytics solution built using Amazon I
 
 ---
 
----
 
 ## 📊 Dataset
 The dataset contains ~1,000,000 transactions from 2015–2025 with realistic e-commerce patterns.
 
 ⚠️ Due to size limitations, dataset is hosted externally:  
-👉 [Dataset Link](#) *(Add your Google Drive / Kaggle link here)*  
+👉https://drive.google.com/drive/folders/1Gbj6V7sNUhEiFLTOt594Q_gqQnP1zUSc?usp=drive_link
 
 ---
 
@@ -70,4 +69,3 @@ The dataset contains ~1,000,000 transactions from 2015–2025 with realistic e-c
 git clone https://github.com/your-username/amazon-sales-analytics.git
 cd amazon-sales-analytics
 
-## 📂 Project Structure
